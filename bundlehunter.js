@@ -5,7 +5,7 @@ var _ = require('lodash'),
 
 module.exports = (function bundleHunter() {
   var bundleRegex = /<!-- bundle:([a-z]+)\s(\w+) -->((?:.|\n)+?)<!-- \/bundle -->/gim,
-      tagRegex = /<.*?(?:(?:src)|(?:href))="(.+?)".*?>/gi,
+      tagRegex = /<.*?(?:(?:src)|(?:href)|(?:data))="(.+?)".*?>/gi,
       bundlesBySourceFile = {};
 
   return function findIn(sourceFiles, options) {
