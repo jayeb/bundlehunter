@@ -1,6 +1,6 @@
 {
   "name": "bundlehunter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Searches through HTML files for properly-formatted bundle comments and outputs bundles",
   "main": "bundlehunter",
   "files": [

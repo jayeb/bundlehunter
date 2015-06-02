@@ -36,13 +36,13 @@ module.exports = (function bundleHunter() {
       };
     });
 
-    if (_.isString(sourceFiles)) {
-      if (glob.hasMagic(sourceFiles)) {
-        sourceFiles = glob.sync(sourceFiles);
+    sourceFiles = _([sourceFiles]).flatten().map(function(file) {
+      if (glob.hasMagic(file)) {
+        return glob.sync(file);
       } else {
-        sourceFiles = [sourceFiles];
+        return file;
       }
-    }
+    }).flatten().uniq().value();
 
     _.each(sourceFiles, function huntInFile(file) {
       var fileContents,
